@@ -1,0 +1,9 @@
+git init
+git add remote origin "https link here" (only first time)
+git add --all
+git commit
+   i
+   comments
+  esc :wq
+git push -u origin master
+   password
