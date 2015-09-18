@@ -21,13 +21,15 @@
 	padding:0;
 }
 
+
 /** General Style Info **/
 body {
-	background: #003d4c;
-	color: #fff;
+	background: url(http://7-themes.com/data_images/out/36/6894141-blurred.jpg);
+	color: #ffff;
 	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
 	font-size:90%;
 	margin: 0;
+	
 }
 a {
 	color: #003d4c;
@@ -46,15 +48,17 @@ h1, h2, h3, h4 {
 	margin-bottom:0.5em;
 }
 h1 {
-	background:#fff;
+	background:#ffff;
 	color: #003d4c;
 	font-size: 100%;
+	
 }
 h2 {
-	background:#fff;
+	background:#ffff;
 	color: #e32;
 	font-family:'Gill Sans','lucida grande', helvetica, arial, sans-serif;
 	font-size: 190%;
+	text-shadow: 2px 2px #ff0000;
 }
 h3 {
 	color: #2c6877;
@@ -74,6 +78,7 @@ p {
 
 /** Layout **/
 #container {
+	
 	text-align: left;
 }
 
@@ -98,7 +103,6 @@ p {
 	text-decoration: underline;
 }
 #content{
-	background: #fff;
 	clear: both;
 	color: #333;
 	padding: 10px 20px 40px 20px;

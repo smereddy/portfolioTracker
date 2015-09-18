@@ -1,228 +1,233 @@
-<?php
-/**
- * @link          http://cakephp.org CakePHP(tm) Project
- * @package       app.View.Pages
- * @since         CakePHP(tm) v 0.10.0.1076
- */
+<html>
 
-if (!Configure::read('debug')):
-	throw new NotFoundException();
-endif;
+<head>
 
-App::uses('Debugger', 'Utility');
-?>
-<h2><?php echo __d('cake_dev', 'Release Notes for CakePHP %s.', Configure::version()); ?></h2>
-<p>
-	<?php echo $this->Html->link(__d('cake_dev', 'Read the changelog'), 'http://cakephp.org/changelogs/' . Configure::version()); ?>
-</p>
-<?php
-if (Configure::read('debug') > 0):
-	Debugger::checkSecurityKeys();
-endif;
-?>
-<?php if (file_exists(WWW_ROOT . 'css' . DS . 'cake.generic.css')): ?>
-	<p id="url-rewriting-warning" style="background-color:#e32; color:#fff;">
-		<?php echo __d('cake_dev', 'URL rewriting is not properly configured on your server.'); ?>
-		1) <a target="_blank" href="http://book.cakephp.org/2.0/en/installation/url-rewriting.html" style="color:#fff;">Help me configure it</a>
-		2) <a target="_blank" href="http://book.cakephp.org/2.0/en/development/configuration.html#cakephp-core-configuration" style="color:#fff;">I don't / can't use URL rewriting</a>
-	</p>
-<?php endif; ?>
-<p>
-<?php
-if (version_compare(PHP_VERSION, '5.2.8', '>=')):
-	echo '<span class="notice success">';
-		echo __d('cake_dev', 'Your version of PHP is 5.2.8 or higher.');
-	echo '</span>';
-else:
-	echo '<span class="notice">';
-		echo __d('cake_dev', 'Your version of PHP is too low. You need PHP 5.2.8 or higher to use CakePHP.');
-	echo '</span>';
-endif;
-?>
-</p>
-<p>
-	<?php
-	if (is_writable(TMP)):
-		echo '<span class="notice success">';
-			echo __d('cake_dev', 'Your tmp directory is writable.');
-		echo '</span>';
-	else:
-		echo '<span class="notice">';
-			echo __d('cake_dev', 'Your tmp directory is NOT writable.');
-		echo '</span>';
-	endif;
-	?>
-</p>
-<p>
-	<?php
-	$settings = Cache::settings();
-	if (!empty($settings)):
-		echo '<span class="notice success">';
-			echo __d('cake_dev', 'The %s is being used for core caching. To change the config edit %s', '<em>' . $settings['engine'] . 'Engine</em>', 'APP/Config/core.php');
-		echo '</span>';
-	else:
-		echo '<span class="notice">';
-			echo __d('cake_dev', 'Your cache is NOT working. Please check the settings in %s', 'APP/Config/core.php');
-		echo '</span>';
-	endif;
-	?>
-</p>
-<p>
-	<?php
-	$filePresent = null;
-	if (file_exists(APP . 'Config' . DS . 'database.php')):
-		echo '<span class="notice success">';
-			echo __d('cake_dev', 'Your database configuration file is present.');
-			$filePresent = true;
-		echo '</span>';
-	else:
-		echo '<span class="notice">';
-			echo __d('cake_dev', 'Your database configuration file is NOT present.');
-			echo '<br/>';
-			echo __d('cake_dev', 'Rename %s to %s', 'APP/Config/database.php.default', 'APP/Config/database.php');
-		echo '</span>';
-	endif;
-	?>
-</p>
-<?php
-if (isset($filePresent)):
-	App::uses('ConnectionManager', 'Model');
-	try {
-		$connected = ConnectionManager::getDataSource('default');
-	} catch (Exception $connectionError) {
-		$connected = false;
-		$errorMsg = $connectionError->getMessage();
-		if (method_exists($connectionError, 'getAttributes')):
-			$attributes = $connectionError->getAttributes();
-			if (isset($errorMsg['message'])):
-				$errorMsg .= '<br />' . $attributes['message'];
-			endif;
-		endif;
-	}
-	?>
-	<p>
-		<?php
-			if ($connected && $connected->isConnected()):
-				echo '<span class="notice success">';
-					echo __d('cake_dev', 'CakePHP is able to connect to the database.');
-				echo '</span>';
-			else:
-				echo '<span class="notice">';
-					echo __d('cake_dev', 'CakePHP is NOT able to connect to the database.');
-					echo '<br /><br />';
-					echo $errorMsg;
-				echo '</span>';
-			endif;
-		?>
-	</p>
-<?php
-endif;
 
-App::uses('Validation', 'Utility');
-if (!Validation::alphaNumeric('cakephp')):
-	echo '<p><span class="notice">';
-		echo __d('cake_dev', 'PCRE has not been compiled with Unicode support.');
-		echo '<br/>';
-		echo __d('cake_dev', 'Recompile PCRE with Unicode support by adding <code>--enable-unicode-properties</code> when configuring');
-	echo '</span></p>';
-endif;
-?>
+<!-- START Worden Top Gainers and Losers Ticker Widget -->
+<script src="http://widgets.freestockcharts.com/js/jquery-1.3.1.min.js" type="text/javascript"></script> <script src="http://widgets.freestockcharts.com/script/WBIHorizontalTicker2.js?ver=12334" type="text/javascript"></script> <link href="http://widgets.freestockcharts.com/WidgetServer/WBITickerblue.css" rel="stylesheet" type="text/css" />
+<script>
+var gainerTick = new WBIHorizontalTicker('gainers');
+gainerTick.start();
+var loserTick = new WBIHorizontalTicker('losers');
+loserTick.start();
+</script> <!-- End Scrolling Ticker Widget -->
 
-<p>
-	<?php
-	if (CakePlugin::loaded('DebugKit')):
-		echo '<span class="notice success">';
-			echo __d('cake_dev', 'DebugKit plugin is present');
-		echo '</span>';
-	else:
-		echo '<span class="notice">';
-			echo __d('cake_dev', 'DebugKit is not installed. It will help you inspect and debug different aspects of your application.');
-			echo '<br/>';
-			echo __d('cake_dev', 'You can install it from %s', $this->Html->link('GitHub', 'https://github.com/cakephp/debug_kit'));
-		echo '</span>';
-	endif;
-	?>
-</p>
+    
 
-<h3><?php echo __d('cake_dev', 'Editing this Page'); ?></h3>
-<p>
-<?php
-echo __d('cake_dev', 'To change the content of this page, edit: %s.<br />
-To change its layout, edit: %s.<br />
-You can also add some CSS styles for your pages at: %s.',
-	'APP/View/Pages/home.ctp', 'APP/View/Layouts/default.ctp', 'APP/webroot/css');
-?>
-</p>
+	
+	
+<table cellspacing="0" cellpadding="0" border: "0">
+		<tr>
+		<td>
+		<img src="http://www.picgifs.com/graphics/e/eagle/graphics-eagle-576150.gif" width="300" height="250"></div></td>
+		</td>
+		<td>
+		<h2 style="text-align: center;">
+		<br>
+		<br>
+		<span style="color: #DAA520;"><b>EAGLE FINANCIAL SERVICES</b></span>
+		<br>
+		<h1 style="text-align: center;">
+        <span style="color: #8A2BE2;"><i>Your MidWest Financial Service Partner</i></span>
+		</h1>
 
-<h3><?php echo __d('cake_dev', 'Getting Started'); ?></h3>
-<p>
-	<?php
-	echo $this->Html->link(
-		sprintf('<strong>%s</strong> %s', __d('cake_dev', 'New'), __d('cake_dev', 'CakePHP 2.0 Docs')),
-		'http://book.cakephp.org/2.0/en/',
-		array('target' => '_blank', 'escape' => false)
-	);
-	?>
-</p>
-<p>
-	<?php
-	echo $this->Html->link(
-		__d('cake_dev', 'The 15 min Blog Tutorial'),
-		'http://book.cakephp.org/2.0/en/tutorials-and-examples/blog/blog.html',
-		array('target' => '_blank', 'escape' => false)
-	);
-	?>
-</p>
+		<h1 style="text-align: center;">
+        <span style="color: #8A2BE2;"><i>Financial Advisor Portfolio Planner</i></span>
+		</h1>
 
-<h3><?php echo __d('cake_dev', 'Official Plugins'); ?></h3>
-<p>
-<ul>
-	<li>
-		<?php echo $this->Html->link('DebugKit', 'https://github.com/cakephp/debug_kit') ?>:
-		<?php echo __d('cake_dev', 'provides a debugging toolbar and enhanced debugging tools for CakePHP applications.'); ?>
-	</li>
-	<li>
-		<?php echo $this->Html->link('Localized', 'https://github.com/cakephp/localized') ?>:
-		<?php echo __d('cake_dev', 'contains various localized validation classes and translations for specific countries'); ?>
-	</li>
-</ul>
-</p>
+		</h2>
+		</td>
+		<td>
+		<h1> LIVE NEWS</h1><iframe width="560" height="315" src="https://www.youtube.com/embed/y60wDzZt8yg" frameborder="0" allowfullscreen></iframe>
+		</td>
+		</tr>
+</table>
 
-<h3><?php echo __d('cake_dev', 'More about CakePHP'); ?></h3>
-<p>
-<?php echo __d('cake_dev', 'CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Active Record, Association Data Mapping, Front Controller and MVC.'); ?>
-</p>
-<p>
-<?php echo __d('cake_dev', 'Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.'); ?>
-</p>
+<head>
+<br>
+<br>
 
-<ul>
-	<li><a href="http://cakephp.org">CakePHP</a>
-	<ul><li><?php echo __d('cake_dev', 'The Rapid Development Framework'); ?></li></ul></li>
-	<li><a href="http://book.cakephp.org"><?php echo __d('cake_dev', 'CakePHP Documentation'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Your Rapid Development Cookbook'); ?></li></ul></li>
-	<li><a href="http://api.cakephp.org"><?php echo __d('cake_dev', 'CakePHP API'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Quick API Reference'); ?></li></ul></li>
-	<li><a href="http://bakery.cakephp.org"><?php echo __d('cake_dev', 'The Bakery'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Everything CakePHP'); ?></li></ul></li>
-	<li><a href="http://plugins.cakephp.org"><?php echo __d('cake_dev', 'CakePHP Plugins'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'A comprehensive list of all CakePHP plugins created by the community'); ?></li></ul></li>
-	<li><a href="http://community.cakephp.org"><?php echo __d('cake_dev', 'CakePHP Community Center'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Everything related to the CakePHP community in one place'); ?></li></ul></li>
-	<li><a href="https://groups.google.com/group/cake-php"><?php echo __d('cake_dev', 'CakePHP Google Group'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Community mailing list'); ?></li></ul></li>
-	<li><a href="irc://irc.freenode.net/cakephp">irc.freenode.net #cakephp</a>
-	<ul><li><?php echo __d('cake_dev', 'Live chat about CakePHP'); ?></li></ul></li>
-	<li><a href="https://github.com/cakephp/"><?php echo __d('cake_dev', 'CakePHP Code'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Find the CakePHP code on GitHub and contribute to the framework'); ?></li></ul></li>
-	<li><a href="https://github.com/cakephp/cakephp/issues"><?php echo __d('cake_dev', 'CakePHP Issues'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'CakePHP Issues'); ?></li></ul></li>
-	<li><a href="https://github.com/cakephp/cakephp/wiki#roadmaps"><?php echo __d('cake_dev', 'CakePHP Roadmaps'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'CakePHP Roadmaps'); ?></li></ul></li>
-	<li><a href="http://training.cakephp.org"><?php echo __d('cake_dev', 'Training'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Join a live session and get skilled with the framework'); ?></li></ul></li>
-	<li><a href="http://cakefest.org"><?php echo __d('cake_dev', 'CakeFest'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Don\'t miss our annual CakePHP conference'); ?></li></ul></li>
-	<li><a href="http://cakefoundation.org"><?php echo __d('cake_dev', 'Cake Software Foundation'); ?> </a>
-	<ul><li><?php echo __d('cake_dev', 'Promoting development related to CakePHP'); ?></li></ul></li>
-</ul>
+
+
+
+
+<style type="text/css">
+<!--
+.text1 {
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 12px;
+	color: #948E77;
+}
+.text2 {
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 14px;
+	font-weight: bold;
+	color: #b4b4b4;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+}
+
+.text3 {
+	font-family: Tahoma, Verdana, Arial;
+	font-size: 11px;
+	color: #948E77;
+}
+}
+
+-->
+</style>
+
+
+
+
+<div style="background-image:url();width:1300px;height:700px;color:black;font-size:18px;border:1px solid #ccc;padding:5px;">
+
+	<td width="5" nowrap>&nbsp;</td>
+    <td width="580" valign="top">
+	<table width="100%" border="0" cellspacing="0" cellpadding="5">
+        <tr>
+          <td valign="top" class="text1">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td colspan="3" valign="top" nowrap class="divider">
+				<A  href="investments" id="projectNav">Non-stock Investments</A></TD>
+				</tr>
+				<tr>
+                <td width="100" valign="top" nowrap><div align="center"><br>
+                    <img src="http://photos.gograph.com/thumbs/CSP/CSP669/k6691915.jpg" width="70" height="70"></div></td>
+
+                <td width="5" nowrap>&nbsp;</td>
+                <td valign="top" class="text1"><br>
+                  At Eagle Financials, we believe strongly in the value of a diversified portfolio. Investing in mutual funds is one way to help accomplish this goal.<br> </td>
+              </tr>
+              <tr>
+                <td colspan="3" class="divider">&nbsp;</td>
+              </tr>
+            </table>
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td colspan="3" valign="top" nowrap class="divider">
+				<A href="stocks" id="projectNav">Stock Portfolio</A></td>
+				</tr>
+				<tr>
+                <td width="100" valign="top" nowrap class="text1"><div align="center"><br>
+                    <img src="http://images.clipartpanda.com/foto-stock-Stock_trends_-_Up_and_Down.png" width="70" height="70"></div></td>
+                <td width="5" nowrap class="text1">&nbsp;</td>
+                <td valign="top" class="text1"><br>
+
+                 There's more to investing than "buy low, sell high." At Eagle Financial Services, we focus on the concept of buying and holding quality investments over time to meet specific goals.</td>
+              </tr>
+              <tr>
+                <td width="465" colspan="3" class="divider">&nbsp;</td>
+              </tr>
+            </table>
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td colspan="3" valign="top" nowrap class="divider">
+				<A href="customers" id="projectNav">Customer Profile</a></td>
+              </tr>
+              <tr>
+                <td width="100" valign="top" nowrap class="text1"><div align="center"><br>
+                    <img src="http://mainstreetdigital.morrismediakits.com/sites/default/files/icon_expand.jpg" width="70" height="70"></div></td>
+                <td width="5" nowrap class="text1">&nbsp;</td>
+                <td valign="top" class="text1"><br>
+                  Customer can access their portfolio here.The portfolio describes Investments made by the investors in our company.</td>
+              </tr>
+
+            </table> </td>
+		</tr>
+      
+			<table width="50%" border="0" cellspacing="0" cellpadding="0">
+				<tr>
+                 <td colspan="3" valign="top" nowrap class="divider">
+					<A href="commodities" id="projectNav"><h6>Commodities</h6></A></td>
+                    </tr>
+                    <tr>
+                    <td width="100" valign="top" nowrap class="text1"><div align="center"><br>
+                    <img src="https://www.bayrons.com/files/comm_en_03_png.png" width="70" height="70"></div></td>
+                    <td width="5" nowrap class="text1">&nbsp;</td>
+                    <td valign="top" class="text1"><br>
+
+                    Commodity futures markets allow commercial producers and commercial consumers to offset the risk of adverse future price movements in the commodities that they are selling or buying.
+
+                  /td>
+                </tr>
+            </table>
+		</tr>
+	</table>
+</div>
+
+
+
+<br>
+<br>
+
+<table cellspacing="0" cellpadding="0" border: "0">
+		<tr>
+		<td><br>
+<h1 style="text-align: left;">
+    <span style="color: #DAA520;"><b>~Contact Info~</b></span>
+</h1>
+
+<h1 style="text-align: left;">
+    <span style="color: #B8860B;"><i>Dr George royce</i></span>
+</h1>
+
+<h1 style="text-align: left;">
+    <span style="color: #B8860B;"><i>PKI Institute - 1110 S 67th Street, Omaha,NE 68182</i></span>
+</h1>
+<h1 style="text-align: left;">
+    <span style="color: #B8860B;"><i>Contact :402-215-0853</i></span>
+</h1>
+<h1 style="text-align: left;">
+    <span style="color: #B8860B;"><b><i>Email :groyce@unomaha.edu     </b></i></span>
+
+</td>
+<br>
+<br><td>   </td>	
+<td>
+<br>
+<br>
+<br>
+
+<br>
+<br>
+<br>
+<a href="https://www.facebook.com/">
+
+<img style="width:40px;height:40px;object-fit:cover;" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/facebook_circle_color-512.png">
+</a>
+
+<a href="https://www.linkedin.com/">
+
+<img style="width:40px;height:40px;object-fit:cover;" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png">
+</a>
+<a href="https://twitter.com/">
+
+<img style="width:40px;height:40px;object-fit:cover;" src="http://wisdomwayscenter.org/uploads/images/Social%20Media%20Icons/twitter.png">
+</a>
+</td>
+</table>
+<h1 style="text-align: center;">
+    <span style="color: #FF0000"><i>Copyright to Eagle Financial Services. All Rights Reserved</i></span>
+</h1>
+
+
+
+</html>
+
+
+
+
+
