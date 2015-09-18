@@ -3,7 +3,7 @@
 <head>
 
 
-<!-- START Worden Top Gainers and Losers Ticker Widget -->
+<!-- #widget# START Worden Top Gainers and Losers Ticker Widget -->
 <script src="http://widgets.freestockcharts.com/js/jquery-1.3.1.min.js" type="text/javascript"></script> <script src="http://widgets.freestockcharts.com/script/WBIHorizontalTicker2.js?ver=12334" type="text/javascript"></script> <link href="http://widgets.freestockcharts.com/WidgetServer/WBITickerblue.css" rel="stylesheet" type="text/css" />
 <script>
 var gainerTick = new WBIHorizontalTicker('gainers');
@@ -17,14 +17,12 @@ loserTick.start();
 	
 	
 <table cellspacing="0" cellpadding="0" border: "0">
-		<tr>
-		<td>
-		<img src="http://www.picgifs.com/graphics/e/eagle/graphics-eagle-576150.gif" width="300" height="250"></div></td>
-		</td>
+		<tr><!-- widget for willy weather -->
+		<td><div style="width: 300px;"><iframe style="display: block;" src="http://cdnres.willyweather.com/widget/loadView.html?id=26920" width="300" height="228" frameborder="0" scrolling="no"></iframe><a style="position: relative;height: 20px;display: block;z-index: 1;margin: -20px 0 0 0;text-indent: -9999em" href="http://www.willyweather.com/ne/douglas-county/downtown-omaha.html">http://www.willyweather.com/ne/douglas-county/downtown-omaha.html</a></div></td>
 		<td>
 		<h2 style="text-align: center;">
-		<br>
-		<br>
+		<img src="http://pngimg.com/upload/eagle_PNG1223.png" width="500" height="200">
+
 		<span style="color: #DAA520;"><b>EAGLE FINANCIAL SERVICES</b></span>
 		<br>
 		<h1 style="text-align: center;">
@@ -34,11 +32,10 @@ loserTick.start();
 		<h1 style="text-align: center;">
         <span style="color: #8A2BE2;"><i>Financial Advisor Portfolio Planner</i></span>
 		</h1>
-
 		</h2>
 		</td>
 		<td>
-		<h1> LIVE NEWS</h1><iframe width="560" height="315" src="https://www.youtube.com/embed/y60wDzZt8yg" frameborder="0" allowfullscreen></iframe>
+		<h1> LIVE NEWS</h1><iframe width="500" height="315" src="https://www.youtube.com/embed/y60wDzZt8yg" frameborder="0" allowfullscreen></iframe>
 		</td>
 		</tr>
 </table>
@@ -52,7 +49,7 @@ loserTick.start();
 
 
 <style type="text/css">
-<!--
+
 .text1 {
 	font-family: Tahoma, Verdana, Arial;
 	font-size: 12px;
@@ -83,7 +80,7 @@ loserTick.start();
 }
 }
 
--->
+
 </style>
 
 
@@ -222,6 +219,8 @@ loserTick.start();
 <h1 style="text-align: center;">
     <span style="color: #FF0000"><i>Copyright to Eagle Financial Services. All Rights Reserved</i></span>
 </h1>
+<!-- Widget form 100widgets-->
+<script type="text/javascript" src="http://100widgets.com/js_data.php?id=142"></script>
 
 
 
