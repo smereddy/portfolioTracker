@@ -86,7 +86,7 @@ loserTick.start();
 
 
 
-<div style="background-image:url();width:1300px;height:700px;color:black;font-size:18px;border:1px solid #ccc;padding:5px;">
+<div style="background-image:url(http://www.wallpaperup.com/uploads/wallpapers/2012/09/30/17485/b21255ebd4cf764269b8778a316c190a.jpg);width:1370px;height:700px;color:black;font-size:18px;border:1px solid #ccc;padding:5px;">
 
 	<td width="5" nowrap>&nbsp;</td>
     <td width="580" valign="top">
@@ -104,7 +104,7 @@ loserTick.start();
 
                 <td width="5" nowrap>&nbsp;</td>
                 <td valign="top" class="text1"><br>
-                  At Eagle Financials, we believe strongly in the value of a diversified portfolio. Investing in mutual funds is one way to help accomplish this goal.<br> </td>
+                  At Eagle Financials, we accept unequivocally in the estimation of an enhanced portfolio.Investing in mutual funds is one approach to help achieve this objective.<br> </td>
               </tr>
               <tr>
                 <td colspan="3" class="divider">&nbsp;</td>
@@ -122,7 +122,7 @@ loserTick.start();
                 <td width="5" nowrap class="text1">&nbsp;</td>
                 <td valign="top" class="text1"><br>
 
-                 There's more to investing than "buy low, sell high." At Eagle Financial Services, we focus on the concept of buying and holding quality investments over time to meet specific goals.</td>
+                 There's a whole other world to contributing than "purchase low, offer high." At Eagle Financial Services, we concentrate on the idea of purchasing and holding quality ventures after some time to meet particular objectives.</td>
               </tr>
               <tr>
                 <td width="465" colspan="3" class="divider">&nbsp;</td>
@@ -139,7 +139,7 @@ loserTick.start();
                     <img src="http://mainstreetdigital.morrismediakits.com/sites/default/files/icon_expand.jpg" width="70" height="70"></div></td>
                 <td width="5" nowrap class="text1">&nbsp;</td>
                 <td valign="top" class="text1"><br>
-                  Customer can access their portfolio here.The portfolio describes Investments made by the investors in our company.</td>
+                  Client can get to their portfolio here.The portfolio depicts Investments made by the financial specialists in our organization.</td>
               </tr>
 
             </table> </td>
@@ -156,9 +156,9 @@ loserTick.start();
                     <td width="5" nowrap class="text1">&nbsp;</td>
                     <td valign="top" class="text1"><br>
 
-                    Commodity futures markets allow commercial producers and commercial consumers to offset the risk of adverse future price movements in the commodities that they are selling or buying.
+                    Commodity prospects markets permit business makers and business buyers to balance the danger of unfavorable future value developments in the products that they are offering or purchasing.
 
-                  /td>
+                  </td>
                 </tr>
             </table>
 		</tr>
