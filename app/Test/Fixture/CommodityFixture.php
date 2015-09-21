@@ -38,7 +38,7 @@ class CommodityFixture extends CakeTestFixture {
 			'noofcommodities' => 'Lore',
 			'purchaseprice' => '',
 			'currentvalue' => '',
-			'datepurchased' => '2015-09-15'
+			'datepurchased' => '2015-09-21'
 		),
 	);
 
