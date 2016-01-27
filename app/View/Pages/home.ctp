@@ -1,200 +1,150 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
 <html>
-		<style type="text/css">
+<head>
+<title>EAGLE</title>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!--webfont-->
+<link href='http://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+<!----font-Awesome----->
+<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+<!----font-Awesome----->
+<!--Animation-->
+<script src="js/wow.min.js"></script>
+<link href="css/animate.css" rel='stylesheet' type='text/css' />
+<script>
+	new WOW().init();
+</script>
 
-				.text1 {
-				font-family: Tahoma, Verdana, Arial;
-				font-size: 12px;
-				color: #948E77;
-				}
-				.text2 {
-					font-family: Tahoma, Verdana, Arial;
-					font-size: 14px;
-					font-weight: bold;
-					color: #b4b4b4;
-					border-top-width: 1px;
-					border-right-width: 1px;
-					border-bottom-width: 1px;
-					border-left-width: 1px;
-					border-top-style: solid;
-					border-right-style: solid;
-					border-left-style: solid;
-					border-top-color: #000000;
-					border-right-color: #000000;
-					border-bottom-color: #000000;
-					border-left-color: #000000;
-				}
-
-				.text3 {
-					font-family: Tahoma, Verdana, Arial;
-					font-size: 11px;
-					color: #948E77;
-				}
-				}
-
-
-		</style>
-		<head>
-			<!-- #widget# START Worden Top Gainers and Losers Ticker Widget -->
-			<script src="http://widgets.freestockcharts.com/js/jquery-1.3.1.min.js" type="text/javascript"></script> <script src="http://widgets.freestockcharts.com/script/WBIHorizontalTicker2.js?ver=12334" type="text/javascript"></script> <link href="http://widgets.freestockcharts.com/WidgetServer/WBITickerblue.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="header wow fadeInUpBig" data-wow-delay="0.4s">
+   <div class="container">
+	  <div class="header_top">
+		<h1><font color="green">EAGLE</h1>
+		<h2><font color="green">FINACIAL SERVICE</h2>
+	  </div>
+   </div>
+ </div>
+  <div class="header-home">
+	<div class="fixed-header">
+		<div class="logo wow bounceInDown" data-wow-delay="0.4s">
+			<a href="index.html">
+	          <span class="secondary">FINACIAL SERVICE</span>
+	          <span class="main">E A G L E</span>
+	        </a>
+		</div>
+				<div class="top-nav wow bounce" data-wow-delay="0.4s">
+				    <span class="menu"> </span>
+					<ul>
+						<li class="active"><a href="index.html">Home</a></li>
+					  	<li><a href="about.html">About</a></li>
+					  	<li><a href="services.html">Services</a></li>
+					  	<li><a href="blog.html">Blog</a></li>
+					  	<li><a href="contact.html">Contact</a></li>		
+					</ul>
+				<!-- script-nav -->
 			<script>
-			var gainerTick = new WBIHorizontalTicker('gainers');
-			gainerTick.start();
-			var loserTick = new WBIHorizontalTicker('losers');
-			loserTick.start();
-			</script> <!-- End Scrolling Ticker Widget -->
-
-			<table cellspacing="0" cellpadding="0" border: "0">
-				<tr>
-					<!-- widget for willy weather -->
-					<td>
-						<div style="width: 300px;">
-							<iframe style="display: block;" src="http://cdnres.willyweather.com/widget/loadView.html?id=26920" width="300" height="228" frameborder="0" scrolling="no">
-							</iframe>
-							<a style="position: relative;height: 20px;display: block;z-index: 1;margin: -20px 0 0 0;text-indent: -9999em" href="http://www.willyweather.com/ne/douglas-county/downtown-omaha.html">http://www.willyweather.com/ne/douglas-county/downtown-omaha.html</a>
-						</div>
-					</td>
-					<td>
-						<h2 style="text-align: center;">
-						<img src="http://pngimg.com/upload/eagle_PNG1223.png" width="500" height="200">
-						<span style="color: #DAA520;"><b>EAGLE FINANCIAL SERVICES</b></span>
-						<br>
-						<h1 style="text-align: center;">
-						<span style="color: #8A2BE2;"><i>Your MidWest Financial Service Partner</i></span>
-						</h1>
-						<h1 style="text-align: center;">
-						<span style="color: #8A2BE2;"><i>Financial Advisor Portfolio Planner</i></span>
-						</h1>
-						</h2>
-					</td>
-					<td>
-						<h1> LIVE NEWS</h1><iframe width="500" height="315" src="https://www.youtube.com/embed/y60wDzZt8yg" frameborder="0" allowfullscreen></iframe>
-					</td>
-				</tr>
-			</table>
-
-		</head>
-		<body>
-			<div style="background-image:url(http://www.wallpaperup.com/uploads/wallpapers/2012/09/30/17485/b21255ebd4cf764269b8778a316c190a.jpg);width:1370px;height:700px;color:black;font-size:18px;border:1px solid #ccc;padding:5px;">
-			<td width="5" nowrap>&nbsp;</td>
-				<td width="580" valign="top">
-					<table width="100%" border="0" cellspacing="0" cellpadding="5">
-						<tr>
-							<td valign="top" class="text1">
-								<table width="100%" border="0" cellspacing="0" cellpadding="0">
-									<tr>
-										<td colspan="3" valign="top" nowrap class="divider">
-											<A  href="investments" id="projectNav">Non-stock Investments</A>
-										</td>
-									</tr>
-									<tr>
-									<td width="100" valign="top" nowrap><div align="center"><br>
-								<img src="http://photos.gograph.com/thumbs/CSP/CSP669/k6691915.jpg" width="70" height="70"></div></td>
-
-							<td width="5" nowrap>&nbsp;</td>
-							<td valign="top" class="text1"><br>
-							  At Eagle Financials, we accept unequivocally in the estimation of an enhanced portfolio.Investing in mutual funds is one approach to help achieve this objective.<br> </td>
-						  </tr>
-						  <tr>
-							<td colspan="3" class="divider">&nbsp;</td>
-						  </tr>
-						</table>
-
-						<table width="100%" border="0" cellspacing="0" cellpadding="0">
-						  <tr>
-							<td colspan="3" valign="top" nowrap class="divider">
-							<A href="stocks" id="projectNav">Stock Portfolio</A></td>
-							</tr>
-							<tr>
-							<td width="100" valign="top" nowrap class="text1"><div align="center"><br>
-								<img src="http://images.clipartpanda.com/foto-stock-Stock_trends_-_Up_and_Down.png" width="70" height="70"></div></td>
-							<td width="5" nowrap class="text1">&nbsp;</td>
-							<td valign="top" class="text1"><br>
-
-							 There's a whole other world to contributing than "purchase low, offer high." At Eagle Financial Services, we concentrate on the idea of purchasing and holding quality ventures after some time to meet particular objectives.</td>
-						  </tr>
-						  <tr>
-							<td width="465" colspan="3" class="divider">&nbsp;</td>
-						  </tr>
-						</table>
-
-						<table width="100%" border="0" cellspacing="0" cellpadding="0">
-						  <tr>
-							<td colspan="3" valign="top" nowrap class="divider">
-							<A href="customers" id="projectNav">Customer Profile</a></td>
-						  </tr>
-						  <tr>
-							<td width="100" valign="top" nowrap class="text1"><div align="center"><br>
-								<img src="http://mainstreetdigital.morrismediakits.com/sites/default/files/icon_expand.jpg" width="70" height="70"></div></td>
-							<td width="5" nowrap class="text1">&nbsp;</td>
-							<td valign="top" class="text1"><br>
-							  Client can get to their portfolio here.The portfolio depicts Investments made by the financial specialists in our organization.</td>
-						  </tr>
-
-						</table> </td>
-					</tr>
-				  
-						<table width="50%" border="0" cellspacing="0" cellpadding="0">
-							<tr>
-							 <td colspan="3" valign="top" nowrap class="divider">
-								<A href="commodities" id="projectNav"><h6>Commodities</h6></A></td>
-								</tr>
-								<tr>
-								<td width="100" valign="top" nowrap class="text1"><div align="center"><br>
-								<img src="https://www.bayrons.com/files/comm_en_03_png.png" width="70" height="70"></div></td>
-								<td width="5" nowrap class="text1">&nbsp;</td>
-								<td valign="top" class="text1"><br>
-
-								Commodity prospects markets permit business makers and business buyers to balance the danger of unfavorable future value developments in the products that they are offering or purchasing.
-
-							  </td>
-							</tr>
-						</table>
-					</tr>
-				</table>
+			$("span.menu").click(function(){
+				$(".top-nav ul").slideToggle(500, function(){
+				});
+			});
+			</script>
+			<!-- //script-nav -->
+				</div>
+				<div class="clearfix"> </div>
 			</div>
-			<br>
-			<br>
-			<table cellspacing="0" cellpadding="0" border: "0">
-				<tr>
-					<td><br>
-						<h1 style="text-align: left;">
-							<span style="color: #DAA520;"><b>~Contact Info~</b></span>
-						</h1>
-						<h1 style="text-align: left;">
-							<span style="color: #B8860B;"><i>Dr George royce</i></span>
-						</h1>
-						<h1 style="text-align: left;">
-							<span style="color: #B8860B;"><i>PKI Institute - 1110 S 67th Street, Omaha,NE 68182</i></span>
-						</h1>
-						<h1 style="text-align: left;">
-							<span style="color: #B8860B;"><i>Contact :402-215-0853</i></span>
-						</h1>
-						<h1 style="text-align: left;">
-							<span style="color: #B8860B;"><b><i>Email :groyce@unomaha.edu</b></i></span>
-
-					</td><br><br>	
-					<td>
-						<br><br><br><br><br><br>
-						<a href="https://www.facebook.com/">
-							<img style="width:40px;height:40px;object-fit:cover;" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/facebook_circle_color-512.png">
-						</a>
-						<a href="https://www.linkedin.com/">
-							<img style="width:40px;height:40px;object-fit:cover;" src="https://cdn3.iconfinder.com/data/icons/free-social-icons/67/linkedin_circle_color-512.png">
-						</a>
-						<a href="https://twitter.com/">
-							<img style="width:40px;height:40px;object-fit:cover;" src="http://wisdomwayscenter.org/uploads/images/Social%20Media%20Icons/twitter.png">
-						</a>
-					</td>
-			</table>
-			<h1 style="text-align: center;">
-				<span style="color: #FF0000"><i>Copyright to Eagle Financial Services. All Rights Reserved</i></span>
-			</h1>
-			<!-- Widget form 100widgets-->
-			<script type="text/javascript" src="http://100widgets.com/js_data.php?id=142"></script>
-		</body>
-</html>
-
-
-
-
-
+		</div>
+        <!--script-->
+		<script>
+			$(document).ready(function(){
+				$(".top-nav li a").click(function(){
+					$(this).parent().addClass("active");
+					$(this).parent().siblings().removeClass("active");
+				});
+			});
+		</script>
+			<!-- script-for sticky-nav -->
+		<script>
+		$(document).ready(function() {
+			 var navoffeset=$(".header-home").offset().top;
+			 $(window).scroll(function(){
+				var scrollpos=$(window).scrollTop(); 
+				if(scrollpos >=navoffeset){
+					$(".header-home").addClass("fixed");
+				}else{
+					$(".header-home").removeClass("fixed");
+				}
+			 });
+			 
+		});
+		</script>
+		<!-- /script-for sticky-nav -->
+	<!--//header-->
+    </div>
+    <div class="team">
+		<div class="container">
+			<h3 class="head_2 wow rollIn" data-wow-delay="0.4s">Welcome to our Finacial Service</h3>
+			<div class="img-wrapper wow slideInLeft" data-wow-delay="0.4s">
+              <a href="#"><img src="images/123.png" class="img-responsive" alt=""/></a>
+              <a href="#"><img src="images/1234.png" class="img-responsive" alt=""/></a>
+              <a href="#"><img src="images/12345.png" class="img-responsive" alt=""/></a>
+              <a href="#"><img src="images/123456.png" class="img-responsive" alt=""/></a>
+            </div>
+            <blockquote class="blockquote1">
+              <div class="block_info wow slideInRight" data-wow-delay="0.4s">
+                <span class="heading">Customer-Investments-Stocks-Commodities</span>
+                Please click on icon for more information on your profile and stock informations
+              </div>
+              <span class="author wow bounce" data-wow-delay="0.4s"><a href="#"></a></span>
+            </blockquote>
+		</div>
+	</div>
+	<div class="footer wow fadeInRight" data-wow-delay="0.4s">
+		<div class="container">
+		  <div class="footer_top">
+			<div class="col-sm-3">
+			   <ul class="list1">
+			   	<h3>Browse</h3>
+			   	 <li><a href="#">Prices</a></li>
+			   	 <li><a href="#">Courses</a></li>
+			   	 <li><a href="#">Blog</a></li>
+			     <li><a href="#">Contacts</a></li>
+			   </ul>
+			</div>
+			<div class="col-sm-3">
+			</div>
+			<div class="col-sm-3">
+			</div>
+			<div class="col-sm-3">
+			  <ul class="socials">
+                 <li><a href="#"><i class="fa fb fa-facebook"></i></a></li>
+                 <li><a href="#"><i class="fa tw fa-twitter"></i></a></li>
+              </ul>
+              <ul class="list2">
+				<li><strong class="phone">+0018 58287 58</strong><br><small>Mon - Fri / 9.00AM - 06.00PM</small></li>
+				<li>Questions? <a href="malito:mail@demolink.org">mail(at)eagle.com</a></li>
+			  </ul>
+			</div>
+			<div class="clearfix"> </div>
+		   </div>
+		 </div>
+	</div>
+	<div class="copy">
+	  <p>&copy; 2014 Design by SPMEREDDY
+    </div>
+</body>
+</html>		

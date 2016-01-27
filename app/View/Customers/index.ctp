@@ -59,8 +59,8 @@
 	<ul>
 		<li><?php echo $this->Html->link(__('New Customer'), array('action' => 'add')); ?></li>
 		<li><?php echo $this->Html->link(__('List Investments'), array('controller' => 'investments', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Investment'), array('controller' => 'investments', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Investments'), array('controller' => 'investments', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Stocks'), array('controller' => 'stocks', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Stock'), array('controller' => 'stocks', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Stocks'), array('controller' => 'stocks', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

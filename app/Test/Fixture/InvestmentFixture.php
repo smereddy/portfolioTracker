@@ -40,11 +40,11 @@ class InvestmentFixture extends CakeTestFixture {
 			'category' => 'Lorem ipsu',
 			'description' => 'Lorem ipsum dolor sit amet',
 			'acquiredvalue' => '',
-			'acquireddate' => '2015-09-09',
+			'acquireddate' => '2015-07-25',
 			'recentvalue' => '',
-			'recentdate' => '2015-09-09',
-			'created' => '2015-09-09 06:45:54',
-			'modified' => '2015-09-09 06:45:54'
+			'recentdate' => '2015-07-25',
+			'created' => '2015-07-25 23:33:01',
+			'modified' => '2015-07-25 23:33:01'
 		),
 	);
 

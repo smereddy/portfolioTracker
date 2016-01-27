@@ -44,8 +44,8 @@ class CustomerFixture extends CakeTestFixture {
 			'primaryemail' => 'Lorem ipsum dolor sit amet',
 			'homephone' => 'Lorem ipsum ',
 			'cellphone' => 'Lorem ipsum ',
-			'created' => '2015-09-09 06:43:27',
-			'modified' => '2015-09-09 06:43:27'
+			'created' => '2015-07-25 23:43:53',
+			'modified' => '2015-07-25 23:43:53'
 		),
 	);
 

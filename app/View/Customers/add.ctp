@@ -24,5 +24,6 @@
 		<li><?php echo $this->Html->link(__('New Investment'), array('controller' => 'investments', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Stocks'), array('controller' => 'stocks', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Stock'), array('controller' => 'stocks', 'action' => 'add')); ?> </li>
+                 <li><?php echo $this->Html->link(__('New Share'), array('controller' => 'sharea', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

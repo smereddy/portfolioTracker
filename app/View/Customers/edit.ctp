@@ -23,8 +23,8 @@
 		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('Customer.id')), array(), __('Are you sure you want to delete # %s?', $this->Form->value('Customer.id'))); ?></li>
 		<li><?php echo $this->Html->link(__('List Customers'), array('action' => 'index')); ?></li>
 		<li><?php echo $this->Html->link(__('List Investments'), array('controller' => 'investments', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Investment'), array('controller' => 'investments', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Investments'), array('controller' => 'investments', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Stocks'), array('controller' => 'stocks', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Stock'), array('controller' => 'stocks', 'action' => 'add')); ?> </li>
+		<li><?php echo $this->Html->link(__('New Stocks'), array('controller' => 'stocks', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

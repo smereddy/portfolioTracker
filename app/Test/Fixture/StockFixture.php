@@ -40,9 +40,9 @@ class StockFixture extends CakeTestFixture {
 			'stname' => 'Lorem ipsum dolor sit amet',
 			'noshares' => 'Lore',
 			'purchaseprice' => '',
-			'datepurchased' => '2015-09-09',
-			'created' => '2015-09-09 06:47:24',
-			'modified' => '2015-09-09 06:47:24'
+			'datepurchased' => '2015-07-25',
+			'created' => '2015-07-25 23:35:23',
+			'modified' => '2015-07-25 23:35:23'
 		),
 	);
 
