@@ -1,105 +1,162 @@
 <?php
-App::uses('AppController', 'Controller');
-/**
- * Users Controller
- *
- * @property User $User
- * @property PaginatorComponent $Paginator
- * @property SessionComponent $Session
- */
+
 class UsersController extends AppController {
 
-/**
- * Components
- *
- * @var array
- */
-	public $components = array('Paginator', 'Session');
-
-/**
- * index method
- *
- * @return void
- */
-	public function index() {
-		$this->User->recursive = 0;
-		$this->set('users', $this->Paginator->paginate());
-	}
-
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function view($id = null) {
-		if (!$this->User->exists($id)) {
-			throw new NotFoundException(__('Invalid user'));
+	public $paginate = array(
+        'limit' => 25,
+        'conditions' => array('status' => '1'),
+    	'order' => array('User.username' => 'asc' ) 
+    );
+	
+    public function beforeFilter() {
+        parent::beforeFilter();
+        $this->Auth->allow('login','add'); 
+    }
+	public function isAuthorized($user) {
+		if ($user['role'] == 'admin'){
+			return true;
 		}
-		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
-		$this->set('user', $this->User->find('first', $options));
+		if(in_array($this->action, array('edit', 'delete'))){
+			if ($user['id'] != $this->request->params['pass'][0]){
+				return false;
+			}
+		}// Here is where we should verify the role and give access based on role
+		return true;
 	}
 
-/**
- * add method
- *
- * @return void
- */
-	public function add() {
+var $helpers = array('Html', 'Form','Csv'); 
+function export()
+{
+    $this->set('users', $this->user->find('all'));
+    $this->layout = null;
+    $this->autoLayout = false;
+    Configure::write('debug','0');
+}
+	public function login() {
+		
+		//if already logged-in, redirect
+		if($this->Session->check('Auth.User')){
+			$this->redirect(array('action' => 'index'));		
+		}
+		
+		// if we get the post information, try to authenticate
 		if ($this->request->is('post')) {
+			if ($this->Auth->login()) {
+				$this->Session->setFlash(__('Welcome, '. $this->Auth->user('username')));
+				$this->redirect($this->Auth->redirectUrl());
+			} else {
+				$this->Session->setFlash(__('Invalid username or password'));
+			}
+		} 
+	}
+	public function view($id = null) {
+		$this->user->id = $id;
+		
+		if (!$this->User->exists()) {
+			throw new NotFoundException('Invalid user');
+		}
+		if (!$id) {
+			$this->Session->setFlash('Invalid user');
+			$this->redirect(array('action' => 'index'));
+			}
+			$this->set('user', $this->user->read());
+		}
+
+	public function logout() {
+		$this->redirect($this->Auth->logout());
+	}
+
+    public function index() {
+		$this->paginate = array(
+			'limit' => 6,
+			'order' => array('User.username' => 'asc' )
+		);
+		$users = $this->paginate('User');
+		$this->set(compact('users'));
+    }
+
+
+    public function add() {
+        if ($this->request->is('post')) {
+				
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				$this->Session->setFlash(__('The user has been created'));
+				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
-			}
-		}
-	}
+				$this->Session->setFlash(__('The user could not be created. Please, try again.'));
+			}	
+        }
+    }
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
-		if (!$this->User->exists($id)) {
-			throw new NotFoundException(__('Invalid user'));
-		}
-		if ($this->request->is(array('post', 'put'))) {
-			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved.'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
-			}
-		} else {
-			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
-			$this->request->data = $this->User->find('first', $options);
-		}
-	}
+    public function edit($id = null) {
 
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function delete($id = null) {
-		$this->User->id = $id;
-		if (!$this->User->exists()) {
-			throw new NotFoundException(__('Invalid user'));
+		    if (!$id) {
+				$this->Session->setFlash('Please provide a user id');
+				$this->redirect(array('action'=>'index'));
+			}
+
+			$user = $this->User->findById($id);
+			if (!$user) {
+				$this->Session->setFlash('Invalid User ID Provided');
+				$this->redirect(array('action'=>'index'));
+			}
+
+			if ($this->request->is('post') || $this->request->is('put')) {
+				$this->User->id = $id;
+				if ($this->User->save($this->request->data)) {
+					$this->Session->setFlash(__('The user has been updated'));
+					$this->redirect(array('action' => 'edit', $id));
+				}else{
+					$this->Session->setFlash(__('Unable to update your user.'));
+				}
+			}
+
+			if (!$this->request->data) {
+				$this->request->data = $user;
+			}
+    }
+
+    public function delete($id = null) {
+		
+		if (!$id) {
+			$this->Session->setFlash('Please provide a user id');
+			$this->redirect(array('action'=>'index'));
 		}
-		$this->request->allowMethod('post', 'delete');
-		if ($this->User->delete()) {
-			$this->Session->setFlash(__('The user has been deleted.'));
-		} else {
-			$this->Session->setFlash(__('The user could not be deleted. Please, try again.'));
+		
+        $this->User->id = $id;
+        if (!$this->User->exists()) {
+            $this->Session->setFlash('Invalid user id provided');
+			$this->redirect(array('action'=>'index'));
+        }
+        if ($this->User->saveField('status', 0)) {
+            $this->Session->setFlash(__('User deleted'));
+            $this->redirect(array('action' => 'index'));
+        }
+        $this->Session->setFlash(__('User was not deleted'));
+        $this->redirect(array('action' => 'index'));
+    }
+	
+	public function activate($id = null) {
+		
+		if (!$id) {
+			$this->Session->setFlash('Please provide a user id');
+			$this->redirect(array('action'=>'index'));
 		}
-		return $this->redirect(array('action' => 'index'));
-	}
+		
+        $this->User->id = $id;
+        if (!$this->User->exists()) {
+            $this->Session->setFlash('Invalid user id provided');
+			$this->redirect(array('action'=>'index'));
+        }
+        if ($this->User->saveField('status', 1)) {
+            $this->Session->setFlash(__('User re-activated'));
+            $this->redirect(array('action' => 'index'));
+        }
+        $this->Session->setFlash(__('User was not re-activated'));
+        $this->redirect(array('action' => 'index'));
+    }
+
 }
+
+?>
