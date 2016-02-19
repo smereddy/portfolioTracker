@@ -1,11 +1,11 @@
 <?php
-App::uses('CustomersController', 'Controller');
+App::uses('UsersController', 'Controller');
 
 /**
- * CustomersController Test Case
+ * UsersController Test Case
  *
  */
-class CustomersControllerTest extends ControllerTestCase {
+class UsersControllerTest extends ControllerTestCase {
 
 /**
  * Fixtures
@@ -13,10 +13,7 @@ class CustomersControllerTest extends ControllerTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.customer',
-		'app.commodity',
-		'app.investment',
-		'app.stock'
+		'app.user'
 	);
 
 /**

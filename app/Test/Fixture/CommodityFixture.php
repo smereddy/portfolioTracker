@@ -1,9 +1,9 @@
 <?php
 /**
- * StockFixture
+ * CommodityFixture
  *
  */
-class StockFixture extends CakeTestFixture {
+class CommodityFixture extends CakeTestFixture {
 
 /**
  * Fields
@@ -13,13 +13,11 @@ class StockFixture extends CakeTestFixture {
 	public $fields = array(
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 10, 'unsigned' => true, 'key' => 'primary'),
 		'customer_id' => array('type' => 'integer', 'null' => false, 'default' => null, 'length' => 10, 'unsigned' => true, 'key' => 'index'),
-		'stsymbol' => array('type' => 'string', 'null' => true, 'default' => null, 'length' => 6, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
-		'stname' => array('type' => 'string', 'null' => true, 'default' => null, 'length' => 30, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
-		'noshares' => array('type' => 'string', 'null' => true, 'default' => null, 'length' => 6, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
+		'commodname' => array('type' => 'string', 'null' => true, 'default' => null, 'length' => 30, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
+		'noofcommodities' => array('type' => 'string', 'null' => true, 'default' => null, 'length' => 6, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'purchaseprice' => array('type' => 'decimal', 'null' => true, 'default' => null, 'length' => '10,2', 'unsigned' => false),
+		'currentvalue' => array('type' => 'decimal', 'null' => true, 'default' => null, 'length' => '10,2', 'unsigned' => false),
 		'datepurchased' => array('type' => 'date', 'null' => false, 'default' => null),
-		'created' => array('type' => 'datetime', 'null' => true, 'default' => null),
-		'modified' => array('type' => 'datetime', 'null' => true, 'default' => null),
 		'indexes' => array(
 			'PRIMARY' => array('column' => 'id', 'unique' => 1),
 			'customer_id' => array('column' => 'customer_id', 'unique' => 0)
@@ -36,13 +34,11 @@ class StockFixture extends CakeTestFixture {
 		array(
 			'id' => 1,
 			'customer_id' => 1,
-			'stsymbol' => 'Lore',
-			'stname' => 'Lorem ipsum dolor sit amet',
-			'noshares' => 'Lore',
+			'commodname' => 'Lorem ipsum dolor sit amet',
+			'noofcommodities' => 'Lore',
 			'purchaseprice' => '',
-			'datepurchased' => '2016-02-19',
-			'created' => '2016-02-19 05:32:24',
-			'modified' => '2016-02-19 05:32:24'
+			'currentvalue' => '',
+			'datepurchased' => '2016-02-19'
 		),
 	);
 

@@ -1,11 +1,11 @@
 <?php
 App::uses('AppModel', 'Model');
 /**
- * Stock Model
+ * Commodity Model
  *
  * @property Customer $Customer
  */
-class Stock extends AppModel {
+class Commodity extends AppModel {
 
 /**
  * Display field
