@@ -65,8 +65,6 @@ Cache::config('default', array('engine' => 'File'));
  * Uncomment one of the lines below, as you need. Make sure you read the documentation on CakePlugin to use more
  * advanced ways of loading plugins
  *
- * CakePlugin::loadAll(); // Loads all plugins at once
- * CakePlugin::load('DebugKit'); //Loads a single plugin named DebugKit
  *
  */
 
@@ -93,11 +91,18 @@ Cache::config('default', array('engine' => 'File'));
  *
  * ));
  */
+CakePlugin::loadAll(); // Loads all plugins at once
+CakePlugin::load('DebugKit'); //Loads a single plugin named DebugKit
+CakePlugin::load('ReportManager',array('bootstrap' => true));  
 Configure::write('Dispatcher.filters', array(
 	'AssetDispatcher',
 	'CacheDispatcher'
 ));
-
+Configure::write('Exception', array(
+    'handler' => 'ErrorHandler::handleException',
+    'renderer' => 'ExceptionRenderer',
+    'log' => true
+));
 /**
  * Configures default file logging options
  */
