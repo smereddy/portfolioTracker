@@ -20,11 +20,10 @@
 	<ul>
 
 		<li><?php echo $this->Html->link(__('List Customers'), array('action' => 'index')); ?></li>
-		<li><?php echo $this->Html->link(__('List Commodities'), array('controller' => 'commodities', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Commodity'), array('controller' => 'commodities', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Investments'), array('controller' => 'investments', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Investment'), array('controller' => 'investments', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('List Stocks'), array('controller' => 'stocks', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Stock'), array('controller' => 'stocks', 'action' => 'add')); ?> </li>
+                 <li><?php echo $this->Html->link(__('New Share'), array('controller' => 'sharea', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

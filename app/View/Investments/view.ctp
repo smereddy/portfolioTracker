@@ -56,6 +56,7 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
+				<li><?php echo $this->Html->link(__('Home Page'), array('controller' => 'users', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Edit Investment'), array('action' => 'edit', $investment['Investment']['id'])); ?> </li>
 		<li><?php echo $this->Form->postLink(__('Delete Investment'), array('action' => 'delete', $investment['Investment']['id']), array(), __('Are you sure you want to delete # %s?', $investment['Investment']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Investments'), array('action' => 'index')); ?> </li>

@@ -1,5 +1,42 @@
+
+
+<!-- CSS goes in the document HEAD or added to your external stylesheet -->
+<style type="text/css">
+
+
+
+
+
+
+</style>
+
+
+
+
+<?php setlocale(LC_MONETARY,"en_US"); ?>
 <div class="customers view">
-<h2><?php echo __('Customer'); ?></h2>
+
+<?php
+$total_stock_purchase_value=0;
+$total_stock_current_value=0;
+$total_investment_acquired_value=0;
+$total_investment_recent_value=0;
+$total_portfolio_stock =0;
+$total_portfolio_investment =0;
+
+$total_portfolio_orginal_value =0;
+$total_portfolio_current_value =0;
+$total_share_value=0;
+?>
+
+<h2><?php  echo __('Customer'); ?></h2>
+	
+	
+	
+
+
+
+
 	<dl>
 		<dt><?php echo __('Id'); ?></dt>
 		<dd>
@@ -46,157 +83,237 @@
 			<?php echo h($customer['Customer']['cellphone']); ?>
 			&nbsp;
 		</dd>
-		<dt><?php echo __('Created'); ?></dt>
-		<dd>
-			<?php echo h($customer['Customer']['created']); ?>
-			&nbsp;
-		</dd>
-		<dt><?php echo __('Modified'); ?></dt>
-		<dd>
-			<?php echo h($customer['Customer']['modified']); ?>
-			&nbsp;
-		</dd>
+
 	</dl>
+
+
+
+<dl>
+		<dt><?php echo __('Id'); ?></dt>
+		<dd>
+			<?php echo h($customer['Customer']['id']); ?>
+			&nbsp;
+		</dd>
+
+
+	</dl>
+
+<BR>
+    <div>
+
+
+<h2><?php  echo __('Stocks'); ?></h2>
+ <table class="gridtable">
+       
+
+
+		<tr>
+		
+		<th><?php echo __('Stock Symbol'); ?></th>
+		<th><?php echo __('Stock Name'); ?></th>
+		<th><?php echo __('No. Shares'); ?></th>
+		<th><?php echo __('Purchase Price'); ?></th>
+		<th><?php echo __('Date of Purchase'); ?></th>
+		<th><?php echo __('Original Value'); ?></th>
+		<th><?php echo __('Current Price'); ?></th>
+		<th><?php echo __('Current Value'); ?></th>
+
+		</tr>
+
+
+
+
+       
+
+
+     
+       <?php
+                
+			
+
+        
+//$currentprice = 50;
+                foreach ($customer['Stock'] as $stock) {
+
+
+	require_once('nusoap.php');
+	$c = new nusoap_client('http://loki.ist.unomaha.edu/~groyce/ws/stockquoteservice.php');
+	//$c = new nusoap_client('http://sysint-roycedev.rhcloud.com/ws/stockquoteservice.php');
+	$currentprice=$c->call('getStockQuote',array('symbol'=>$stock['stsymbol']));
+				
+?>
+            <tr>
+             
+           
+	
+		<td><?php echo $stock['stsymbol']?></td>
+		<td><?php echo $stock['stname']?></td>
+		<td><?php echo $stock['noshares']?></td>
+		<td>$ <?php echo $stock['purchaseprice']?></td>
+		<td><?php echo $stock['datepurchased']?></td>
+		<td>$ <?php echo ($stock['purchaseprice'] * $stock['noshares'] )?></td>
+		 <?php $total_stock_purchase_value = $total_stock_purchase_value + ($stock['purchaseprice'] * $stock['noshares'] )?>
+		<td>$ <?php echo $currentprice?></td>
+		<td>$ <?php echo $currentprice * $stock['noshares'] ?></td>
+		 <?php $total_stock_current_value = $total_stock_current_value + ($currentprice * $stock['noshares'] )?>
+ </tr>
+
+		
+
+
+        <?php } // end foreach ?>
+
+ <tr>
+		<td><b><?php echo __('Total Stock Value'); ?></b></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td><b>$ <?php echo $total_stock_purchase_value ?></b></td>
+		<td></td>
+		<td><b>$ <?php echo $total_stock_current_value ?></b></td>
+		 </tr>
+
+       </table>
+
+
+<h2><?php  echo __('Investments'); ?></h2>
+
+
+ <table class="gridtable">
+       
+
+
+		<tr>
+		
+		<th><?php echo __('Category'); ?></th>
+		<th><?php echo __('Description'); ?></th>
+		<th><?php echo __('Acquired Value'); ?></th>
+		<th><?php echo __('Acquired Date'); ?></th>
+		<th><?php echo __('Recent Value'); ?></th>
+		<th><?php echo __('Recent Date'); ?></th>
+
+		</tr>
+
+       
+
+        <?php
+$currentprice = 50;
+                foreach ($customer['Investment'] as $investment) { ?>
+
+            <tr>
+             
+           
+
+		<td><?php echo $investment['category']?></td>
+	        <td><?php echo $investment['description']?></td>
+		<td>$<?php echo $investment['acquiredvalue']?></td>
+		<?php $total_investment_acquired_value = $total_investment_acquired_value + $investment['acquiredvalue'] ?>
+		<td><?php echo $investment['acquireddate']?></td>
+		<td>$<?php echo $investment['recentvalue']?></td>
+		<?php $total_investment_recent_value = $total_investment_recent_value + $investment['recentvalue'] ?>
+		<td><?php echo $investment['recentdate']?></td>
+
+
+
+ </tr>
+
+
+
+
+        <?php } // end foreach ?>
+<tr>
+		<td><b><?php echo __('Total Investment Value'); ?></b></td>
+		<td></td>
+		<td>$<b><?php echo $total_investment_acquired_value ?></b></td>
+		<td></td>
+		<td>$<b><?php echo  $total_investment_recent_value ?></b></td>
+		<td></td>
+		 </tr>
+
+
+       </table>
+
+
+
+
+
+      
+<h2><?php  echo __('Total Portfolio Value'); ?></h2>
+ <table class="gridtable">
+       
+
+
+		<tr>
+		
+		<th><?php echo __('Category'); ?></th>
+		<th><?php echo __('Original Value'); ?></th>
+		<th><?php echo __('Current Value'); ?></th>
+		</tr>
+
+
+		<tr>
+		<td><?php echo __ ('Stocks')?></td>
+		<td>$<?php echo $total_stock_purchase_value?></td>
+		<td>$<?php echo $total_stock_current_value?></td>
+		</tr>
+
+		<tr>
+		<td><?php echo __ ('Investments')?></td>
+		<td>$<?php echo $total_investment_acquired_value?></td>
+		<td>$<?php echo $total_investment_recent_value?></td>
+		</tr>
+
+<?php $total_portfolio_stock = $total_stock_purchase_value + $total_investment_acquired_value  ?>
+<?php $total_portfolio_investment =  $total_stock_current_value +  $total_investment_recent_value ?>
+		<tr>
+		<td><b><?php echo __ ('Total Portfolio Value')?></b></td>
+		<td>$<b><?php echo $total_portfolio_stock?></b></td>
+		<td>$<b><?php echo $total_portfolio_investment?></b></td>
+		</tr>
+
+</table>
+
+<h2><?php  echo __('shares'); ?></h2>
+ <table class="gridtable">
+       
+
+
+		<tr>
+		
+		<th><?php echo __('Total shares '); ?></th>
+		<th><?php echo __('Value '); ?></th>
+       
+		</tr>
+		<?php $total_share_value = $total_portfolio_stock +
+$total_portfolio_investment  ?>
+		<tr>
+		<td><?php echo __ ('All shares')?></td>
+		<td>$<b><?php echo $total_share_value?></b></td>
+		</tr>
+		
+
+		
+ 
+		
+		</tr>
+</table>
+
+    </div>
+
 </div>
+
+
+
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
+		<li><?php echo $this->Html->link(__('Home Page'), array('controller' => 'users', 'action' => 'index')); ?> </li>
 		<li><?php echo $this->Html->link(__('Edit Customer'), array('action' => 'edit', $customer['Customer']['id'])); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete Customer'), array('action' => 'delete', $customer['Customer']['id']), array(), __('Are you sure you want to delete # %s?', $customer['Customer']['id'])); ?> </li>
+		<li><?php echo $this->Form->postLink(__('Delete Customer'), array('action' => 'delete', $customer['Customer']['id']), null, __('Are you sure you want to delete # %s?', $customer['Customer']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__('List Customers'), array('action' => 'index')); ?> </li>
+<li><?php echo $this->Html->link(__('New Share'), array('controller' => 'share', 'action' => 'add')); ?> </li>
 		<li><?php echo $this->Html->link(__('New Customer'), array('action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Commodities'), array('controller' => 'commodities', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Commodity'), array('controller' => 'commodities', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Investments'), array('controller' => 'investments', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Investment'), array('controller' => 'investments', 'action' => 'add')); ?> </li>
-		<li><?php echo $this->Html->link(__('List Stocks'), array('controller' => 'stocks', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__('New Stock'), array('controller' => 'stocks', 'action' => 'add')); ?> </li>
+
 	</ul>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Commodities'); ?></h3>
-	<?php if (!empty($customer['Commodity'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Customer Id'); ?></th>
-		<th><?php echo __('Commodname'); ?></th>
-		<th><?php echo __('Noofcommodities'); ?></th>
-		<th><?php echo __('Purchaseprice'); ?></th>
-		<th><?php echo __('Currentvalue'); ?></th>
-		<th><?php echo __('Datepurchased'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($customer['Commodity'] as $commodity): ?>
-		<tr>
-			<td><?php echo $commodity['id']; ?></td>
-			<td><?php echo $commodity['customer_id']; ?></td>
-			<td><?php echo $commodity['commodname']; ?></td>
-			<td><?php echo $commodity['noofcommodities']; ?></td>
-			<td><?php echo $commodity['purchaseprice']; ?></td>
-			<td><?php echo $commodity['currentvalue']; ?></td>
-			<td><?php echo $commodity['datepurchased']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'commodities', 'action' => 'view', $commodity['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'commodities', 'action' => 'edit', $commodity['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'commodities', 'action' => 'delete', $commodity['id']), array(), __('Are you sure you want to delete # %s?', $commodity['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Commodity'), array('controller' => 'commodities', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Investments'); ?></h3>
-	<?php if (!empty($customer['Investment'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Customer Id'); ?></th>
-		<th><?php echo __('Category'); ?></th>
-		<th><?php echo __('Description'); ?></th>
-		<th><?php echo __('Acquiredvalue'); ?></th>
-		<th><?php echo __('Acquireddate'); ?></th>
-		<th><?php echo __('Recentvalue'); ?></th>
-		<th><?php echo __('Recentdate'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($customer['Investment'] as $investment): ?>
-		<tr>
-			<td><?php echo $investment['id']; ?></td>
-			<td><?php echo $investment['customer_id']; ?></td>
-			<td><?php echo $investment['category']; ?></td>
-			<td><?php echo $investment['description']; ?></td>
-			<td><?php echo $investment['acquiredvalue']; ?></td>
-			<td><?php echo $investment['acquireddate']; ?></td>
-			<td><?php echo $investment['recentvalue']; ?></td>
-			<td><?php echo $investment['recentdate']; ?></td>
-			<td><?php echo $investment['created']; ?></td>
-			<td><?php echo $investment['modified']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'investments', 'action' => 'view', $investment['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'investments', 'action' => 'edit', $investment['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'investments', 'action' => 'delete', $investment['id']), array(), __('Are you sure you want to delete # %s?', $investment['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Investment'), array('controller' => 'investments', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
-</div>
-<div class="related">
-	<h3><?php echo __('Related Stocks'); ?></h3>
-	<?php if (!empty($customer['Stock'])): ?>
-	<table cellpadding = "0" cellspacing = "0">
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Customer Id'); ?></th>
-		<th><?php echo __('Stsymbol'); ?></th>
-		<th><?php echo __('Stname'); ?></th>
-		<th><?php echo __('Noshares'); ?></th>
-		<th><?php echo __('Purchaseprice'); ?></th>
-		<th><?php echo __('Datepurchased'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
-		<th class="actions"><?php echo __('Actions'); ?></th>
-	</tr>
-	<?php foreach ($customer['Stock'] as $stock): ?>
-		<tr>
-			<td><?php echo $stock['id']; ?></td>
-			<td><?php echo $stock['customer_id']; ?></td>
-			<td><?php echo $stock['stsymbol']; ?></td>
-			<td><?php echo $stock['stname']; ?></td>
-			<td><?php echo $stock['noshares']; ?></td>
-			<td><?php echo $stock['purchaseprice']; ?></td>
-			<td><?php echo $stock['datepurchased']; ?></td>
-			<td><?php echo $stock['created']; ?></td>
-			<td><?php echo $stock['modified']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('View'), array('controller' => 'stocks', 'action' => 'view', $stock['id'])); ?>
-				<?php echo $this->Html->link(__('Edit'), array('controller' => 'stocks', 'action' => 'edit', $stock['id'])); ?>
-				<?php echo $this->Form->postLink(__('Delete'), array('controller' => 'stocks', 'action' => 'delete', $stock['id']), array(), __('Are you sure you want to delete # %s?', $stock['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</table>
-<?php endif; ?>
-
-	<div class="actions">
-		<ul>
-			<li><?php echo $this->Html->link(__('New Stock'), array('controller' => 'stocks', 'action' => 'add')); ?> </li>
-		</ul>
-	</div>
 </div>

@@ -15,7 +15,6 @@ class StocksControllerTest extends ControllerTestCase {
 	public $fixtures = array(
 		'app.stock',
 		'app.customer',
-		'app.commodity',
 		'app.investment'
 	);
 

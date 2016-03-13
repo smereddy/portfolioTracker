@@ -74,7 +74,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => '',
-		'database' => 'eagle',
+		'database' => 'Eagle',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);

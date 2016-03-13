@@ -31,14 +31,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 </head>
 <body>
-<div class="header wow fadeInUpBig" data-wow-delay="0.4s">
-   <div class="container">
-	  <div class="header_top">
-		<h1><font color="green">EAGLE</h1>
-		<h2><font color="green">FINACIAL SERVICE</h2>
-	  </div>
-   </div>
- </div>
+
   <div class="header-home">
 	<div class="fixed-header">
 		<div class="logo wow bounceInDown" data-wow-delay="0.4s">
@@ -50,11 +43,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<div class="top-nav wow bounce" data-wow-delay="0.4s">
 				    <span class="menu"> </span>
 					<ul>
-						<li class="active"><a href="index.html">Home</a></li>
-					  	<li><a href="about.html">About</a></li>
-					  	<li><a href="services.html">Services</a></li>
-					  	<li><a href="blog.html">Blog</a></li>
-					  	<li><a href="contact.html">Contact</a></li>		
+						<li class="active"><a href="pages">Home</a></li>
+					  	<li><a href="login">Login</a></li>	
 					</ul>
 				<!-- script-nav -->
 			<script>
@@ -99,14 +89,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		<div class="container">
 			<h3 class="head_2 wow rollIn" data-wow-delay="0.4s">Welcome to our Finacial Service</h3>
 			<div class="img-wrapper wow slideInLeft" data-wow-delay="0.4s">
-              <a href="#"><img src="images/123.png" class="img-responsive" alt=""/></a>
-              <a href="#"><img src="images/1234.png" class="img-responsive" alt=""/></a>
-              <a href="#"><img src="images/12345.png" class="img-responsive" alt=""/></a>
-              <a href="#"><img src="images/123456.png" class="img-responsive" alt=""/></a>
+              <a href="Customers"><img src="images/123.png" class="img-responsive" alt=""/></a>
+              <a href="Investments"><img src="images/1234.png" class="img-responsive" alt=""/></a>
+              <a href="Stocks"><img src="images/12345.png" class="img-responsive" alt=""/></a>
             </div>
             <blockquote class="blockquote1">
               <div class="block_info wow slideInRight" data-wow-delay="0.4s">
-                <span class="heading">Customer-Investments-Stocks-Commodities</span>
+                <span class="heading">Customer-Investments-Stocks</span>
                 Please click on icon for more information on your profile and stock informations
               </div>
               <span class="author wow bounce" data-wow-delay="0.4s"><a href="#"></a></span>
@@ -119,11 +108,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			<div class="col-sm-3">
 			   <ul class="list1">
 			   	<h3>Browse</h3>
-			   	 <li><a href="#">Prices</a></li>
-			   	 <li><a href="#">Courses</a></li>
-			   	 <li><a href="#">Blog</a></li>
-			     <li><a href="#">Contacts</a></li>
-			   </ul>
+			   	 <li><a href="Customers">Customers</a></li>
+			   	 <li><a href="Investments">Investments</a></li>
+			   	 <li><a href="stocks">stocks</a></li>
+			      </ul>
 			</div>
 			<div class="col-sm-3">
 			</div>
@@ -144,7 +132,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		 </div>
 	</div>
 	<div class="copy">
-	  <p>&copy; 2014 Design by SPMEREDDY
+	  <p>&copy; 2016 Design by SPMEREDDY
     </div>
 </body>
 </html>		

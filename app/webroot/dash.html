@@ -1,0 +1,242 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- jQuery (necessary JavaScript plugins) -->
+<script src="js/bootstrap.js"></script>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!-- Custom Theme files -->
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="University Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="js/jquery.min.js"></script>
+ <script src="js/bootstrap.js"></script>
+
+</head>
+<body>
+<!-- banner -->
+<script src="js/responsiveslides.min.js"></script>
+<script>  
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: true,
+      	nav: true,
+      	speed: 500,
+        namespace: "callbacks",
+        pager: true,
+      });
+    });
+  </script>  
+<div class="banner">	  
+	 <div class="header">
+			 <div class="logo">
+				 <a href="dash.html"><img src="images/logo.jpg" alt=""/></a>
+			 </div>
+			 <div class="top-menu">
+				 <span class="menu"></span>
+				 <ul class="navig">
+					 <li class="active"><a href="dash.html">Home</a></li>
+					 <li><a href="appeals">Appeals</a></li>
+					 <li><a href="Donors">Donors</a></li>
+					 <li><a href="Memorials">Memorials</a></li>
+					 <li><a href="items">Items</a></li>
+					 <li><a href="libraries">Libraries</a></li>
+					 <li><a href="transactions">Transactions</a></li>
+					 <li><?php 
+echo $this->Html->link( "Logout",   array('action'=>'logout') ); 
+?></li>
+				 </ul>
+			 </div>
+			  <!-- script-for-menu -->
+		 <script>
+				$("span.menu").click(function(){
+					$("ul.navig").slideToggle("slow" , function(){
+					});
+				});
+		 </script>
+		 <!-- script-for-menu -->
+
+			 <div class="clearfix"></div>
+	 </div>
+	 <div class="slider">
+		 <div class="caption">
+			 <div class="container">
+				  <div class="callbacks_container">
+					  <ul class="rslides" id="slider">
+						    <li><h3>Omaha Public Library</h3></li>
+							<li><h3>Open your world</h3></li>	
+							<li><h3>For the people. By the people</h3></li>	
+					  </ul>	
+						<div class="clearfix"></div>
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+	  <div class="banner-grids">
+		  <div class="container">
+			 <div class="col-md-4 banner-grid">
+				 <h3>Author visit</h3>
+				 <div class="banner-grid-sec">
+					 <div class="grid_info">
+						 <div class="blg-pic">
+							 <img src="images/m1.jpg" class="img-responsive" alt="">
+						 </div>
+						 <div class="blg-pic-info">
+							 <h4><a href="#">Explore Nature with T.A. Barron at N.P. Dodge Park</a></h4>
+							 <p>
+T. A. Barron, nature lover and author of the Merlin, Heartlight and Atlantis sagas, will join us at N.P. Dodge Park Pavilion for an afternoon of exploring how every person, young or old, has the power to make a difference in the world and be a hero.  After the main presentation</p>
+						 </div>
+						 <div class="clearfix"></div>
+					 </div>
+					 <div class="grid_info">
+						 <div class="blg-pic">
+							 <img src="images/m2.jpg" class="img-responsive" alt="">
+						 </div>
+						 <div class="blg-pic-info">
+							 <h4><a href="#">Patrick Dobson Author Visit</a></h4>
+							 <p>
+Join us for an author talk and book signing at the Lewis and Clark National Historic Trail Visitor Center with Patrick Dobson, author of "Canoeing the Great Plains: A Missouri River Summer."</p>
+						 </div>
+						 <div class="clearfix"></div>
+					 </div>
+					 </div>
+			 </div>
+			 <div class="col-md-4 banner-grid">
+				 <h3>Library Card</h3>
+				 <div class="banner-grid-sec">
+					 <div class="news-grid">
+						 <h4><a href="http://omahalibrary.org/my-library/request-library-card">Register for Library CARD</a></h4>
+						 <p>If you are a resident of Douglas County, Nebraska and you have never had an Omaha Public Library card, the application below is for you. 
+If you are not a resident of Douglas County, Nebraska, please click above to see available options.
+If you have had an Omaha Public Library account before, please do not use the application below. Click above for instructions about how to report a lost or stolen card and/or to replace it.
+If you are a new applicant who resides in Douglas County, Nebraska, once you have completed and submitted the online application below, your library card will be mailed to you.  </p>
+					 </div>
+				
+				 </div>
+			 </div>
+			 <div class="col-md-4 banner-grid">
+				 <h3>News Letter</h3>
+				 <div class="banner-grid-sec news_sec">
+					 <div class="news-ltr">
+						 <h4><a href="#">Please enter your email address</a></h4>
+						 <p>For monthly offer and updates enter your email address below</p>
+					 </div>
+					 <form>
+						 <input type="text" placeholder="Email Address*" required="">
+						 <input type="submit" value="SEND">
+					 </form>
+				 </div>
+			 </div>
+			 <div class="clearfix"></div>
+		  </div>
+	  </div>
+</div>
+<!---->
+<div class="welcome">
+	 <div class="container">
+		 <h2>Omaha is a vital and vibrant city, with Omaha Public Library as an essential catalyst, collaborator and connector.</h2>
+		 <div class="welcm_sec">
+			 <div class="col-md-9 campus">
+				 <div class="campus_head">
+					 <h3>Welcome</h3>
+					 <p>Omaha Public Library strengthens our communities by connecting people with ideas, information, and innovative services.
+</p>
+				 </div>
+				 <div class="col-md-3 wel_grid">
+					 <img src="images/w1.jpg" class="img-responsive" alt=""/>
+					 <h5><a href="#">Service Excellence</a></h5>
+					 <p>
+We provide positive and welcoming experiences to everyone, both online and in person.</p>
+				 </div>
+				 <div class="col-md-3 wel_grid">
+					 <img src="images/w3.jpg" class="img-responsive" alt=""/>
+					 <h5><a href="#">Integrity</a></h5>
+					 <p>
+We are a trusted resource for our communities. We take pride in our commitment to honesty and transparency.</p>
+				 </div>
+				 <div class="col-md-3 wel_grid">
+					 <img src="images/w2.jpg" class="img-responsive" alt=""/>
+					 <h5><a href="#">Innovation</a></h5>
+					 <p>
+We continually seek new and better ways to serve our communities. We anticipate change, and respond quickly.
+</p>
+				 </div>
+				 <div class="col-md-3 wel_grid">
+					 <img src="images/w4.jpg" class="img-responsive" alt=""/>
+					 <h5><a href="#">Community Engagement</a></h5>
+					 <p>
+We are an integral part of the communities we serve. We seek and nurture relationships with other organizations to develop partnerships that move Omaha forward.
+</p>
+				 </div>
+				 <div class="clearfix"></div>
+				 </div>
+			 <div class="col-md-3 testimonal">
+					<h3>Advertisments</h3>
+					
+			 </div>
+			 <div class="clearfix"></div>
+		 </div>
+	 </div>
+</div>
+<!---->
+<div class="news">
+	 <div class="container">
+		 <h3>Top News</h3>
+		  <div class="event-grids">			
+		     <div class="col-md-4 event-grid">
+				 <div class="date">
+				     <h4>26</h4>
+					 <span>10/2015</span>
+				 </div>				 
+			     <div class="event-info">
+					  <h5><a href="#">Get Crafty: Kids Halloween Craft.</p>					
+				 </div>
+				 <div class="clearfix"></div>				 			 
+			 </div>
+			 <div class="col-md-4 event-grid">
+				 <div class="date">
+				     <h4>24</h4>
+					 <span>10/2015</span>
+				 </div>				 
+			     <div class="event-info">
+					  <h5><a href="#">Halloween Fun Fest at Main Library</a></h5>
+						</div>
+				 <div class="clearfix"></div>				 			 
+			 </div>
+			 <div class="col-md-4 event-grid">
+				 <div class="date">
+				     <h4>20</h4>
+					 <span>10/2015</span>
+				 </div>				 
+			     <div class="event-info">
+					  <h5><a href="#">Saddlebrook Storytime - Happy Halloween</a></h5>
+						</div>
+				 <div class="clearfix"></div>				 			 
+			 </div>
+			 <div class="clearfix"></div>	
+		 </div>
+	 </div>
+</div>
+<!---->
+<!---->
+<div class="copywrite">
+	 <div class="container">
+		 <p>Copyright © 2015 Omaha Public Library. All rights reserved | Design by MESH</a></p>
+	 </div>
+</div>
+<!---->
+</body>
+</html>
+<?php 
+echo $this->Html->link( "Logout",   array('action'=>'logout') ); 
+?>
