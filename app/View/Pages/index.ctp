@@ -44,7 +44,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				    <span class="menu"> </span>
 					<ul>
 						<li class="active"><a href="pages">Home</a></li>
-					  	<li><a href="login">Login</a></li>	
+					 	
 					</ul>
 				<!-- script-nav -->
 			<script>
