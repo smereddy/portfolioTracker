@@ -36,8 +36,5 @@ class AppController extends Controller {
 	// added the debug toolkit
 	// sessions support
 	// authorization for login and logut redirect
-	
+
     }
-	
-	
-}
